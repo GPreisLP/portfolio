@@ -5,6 +5,7 @@ function cancelEvent(e) {
         window.event.returnValue = false;
     }
 }
+
 function checkBorder(posx,posy){
     var screen = document.getElementById('gameLocation');
     if((screen.clientWidth - 43) > posx && (screen.clientHeight - 65) > posy){
