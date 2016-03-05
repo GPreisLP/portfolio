@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Control de teclado | Joan Carles Lopez Puig</title>
+        <script src="js/tecladoController.js"></script>
+        <link rel="stylesheet" href="css/main.css" />
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+        <div class="expAndLvl top">
+            <div class="col-md-6 expAndLvl">
+                <h1>
+                    Lvl: <span id="lvl"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Exp: <span id="exp"></span> de <span id="expRequired"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Kills: <span id="kills"></span>
+                </h1>
+            </div>
+            <div class="col-md-6">
+                <button type="button" class="btn btn-primary instrucciones" data-toggle="modal" data-target="#Instructions">INSTRUCCIONES Y <br/>REGLAS</button>
+                <img class="sound" src="images/soundOn.png" name="On" onclick="sound(this.name);" />
+                
+            </div>
+        </div>
+        <div id="gameLocation">
+        
+        </div>
+        <button type="button" id="end" class="btn btn-info btn-lg" data-toggle="modal" style="display:none;" data-target="#Die">Open Modal</button>
+
+        <!-- Die Modal -->
+        <div class="modal fade" id="Die" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">¡¡¡HAS PERDIDO!!!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>¡¡¡Tanto matar gatos gitanos, te han atacados todos sus primos, te han dejado sin ramen y has muerto de hambre!!!</p>
+                        <p>Clica en "Jugar de nuevo" o espera 10 segundos para una nueva partida.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" onClick = "javascript:replay();" class="btn btn-default" data-dismiss="modal">Jugar de nuevo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Instructions Modal -->
+        <div class="modal fade" id="Instructions" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">INSTRUCCIONES DE JUEGO Y REGLAS</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>¡¡¡Naruto necesita tu ayuda para defender su ramen para que no se muera de hambre!!!</p>
+                        <br/><br/>
+                        <p>Apreta espacio para lanzar el Rasengan hacia el gato gitano.</p>
+                        <br/>
+                        <p>Dispones de 10 boles de ramen, si Naruto se queda sin boles de ramen, Naruto muere de hambre.</p>
+                        <br/>
+                        <p>Si tienes menos de 10 boles de ramen, al matar 100 gatos gitanos, recuperas 1 bol de ramen.</p>
+                        <br/>
+                        <p>¡¡Por cada nivel, naruto aumenta su velocidad en 2 y los gatos gitanos aumentan la suya en 3, hasta el punto de que el Rasengan puede fallar, al loro!!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+			<div id = "vidas" class="container">
+				<div class="col-md-12">
+                    <div class="col-md-1 col-md-offset-1 ramen"></div>
+                    <div class="col-md-1 ramen"></div>
+                    <div class="col-md-1 ramen"></div>
+                    <div class="col-md-1 ramen"></div>
+                    <div class="col-md-1 ramen"></div>
+                    <div class="col-md-1 ramen"></div>
+                    <div class="col-md-1 ramen"></div>
+                    <div class="col-md-1 ramen"></div>
+                    <div class="col-md-1 ramen"></div>
+                    <div class="col-md-1 ramen"></div>
+                    <div class="col-md-1 col-md-offset-1 ramen"></div>
+                    
+                </div>
+			</div>
+		</footer>
+	</body>
+</html>
