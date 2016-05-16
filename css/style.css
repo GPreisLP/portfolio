@@ -168,6 +168,7 @@ fieldset[disabled] .btn-primary.active {
     margin-bottom: 68px;
 	-webkit-transition: all 0.3s;
 	transition: all 0.3s;
+	border-radius:3px;
 	
 }
 
@@ -258,6 +259,9 @@ and (max-width : 1199px) {
 
 
 .copyright {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     background: rgba( 0, 0, 0, 0.7);
     color: #fff;
     padding-top: 20px;
