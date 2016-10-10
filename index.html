@@ -24,10 +24,10 @@
         <link href="css/style.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
-        <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
         
         <!-- Favicon -->
-        <link rel="icon" type="image/png" href="http://castellhama.xyz/wp-content/uploads/2015/10/favicon.png">
+        <link rel="icon" type="image/png" href="https://castellhama.xyz/wp-content/uploads/2015/10/favicon.png">
 
         <!-- Template js -->
         <script src="js/jquery-2.1.1.min.js"></script>
@@ -42,7 +42,40 @@
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-
+        <script>
+            var someDate = new Date();
+            var dd = someDate.getDate();
+            var mm = someDate.getMonth() + 1;
+            var y = someDate.getFullYear();
+        
+        
+            var fechaInicio = new Date(2015,11,01);
+            var fechaActual = new Date(y,mm,dd);
+            var fechaFinal = new Date(2018,11,01);
+            var diasTot = fechaFinal.getTime() - fechaInicio.getTime();
+            var dias = Math.round(diasTot/(1000 * 60 * 60 * 24));
+            
+            var diasRest = fechaFinal.getTime() - fechaActual.getTime();
+            var dias2 = Math.round(diasRest/(1000 * 60 * 60 * 24));
+            
+            var diasSenior = 100 - ((dias2 / dias) * 100);
+            
+            var meses = (dias - dias2) / 30;
+            var years = meses/12;
+            
+            if(meses > 12){
+                if(years == 1){
+                    meses -= 12;
+                }else if(years == 2){
+                    meses -= 24;
+                }else if(years == 3){
+                    meses -= 36;
+                }
+            }
+            
+            var tiempo = Math.round(years) + " años y " + meses.toFixed(1) + " meses";
+            
+        </script>
     </head>
     
     <body>
@@ -402,9 +435,9 @@
                                         <p>Mi visi&oacute;n como profesional es ayudar a la gente a tener su propio p&aacute;gina web como siempre la ha deseado, además de hacer aplicaciones &uacute;tiles que todo el mundo sea capaz de utilizar de forma sencilla y r&aacute;pida.</p>
                                         <p>Objetivo profesional: convertirme en programador Senior (3 años requeridos)</p>
                                         <div class="progress">
-                                            <div class="progress-bar" role="progressbar"  data-percentage="19.5">
-                                                <span class="progress-bar-span" >19.5%</span>
-                                                <span class="sr-only-custom-custom">7 meses</span>
+                                            <script>document.write('<div class="progress-bar" role="progressbar"  data-percentage="'+diasSenior.toFixed(2)+'">');</script>
+                                                <span class="progress-bar-span" ><script>document.write(diasSenior.toFixed(2));</script></span>
+                                                <span class="sr-only-custom-custom"><script>document.write(tiempo)</script></span>
                                             </div>
                                         </div>
                                     </div>
@@ -567,7 +600,7 @@
             </div>
         </div>
         <!-- End APP Section -->
-        
+       
     </body>
     
 </html>
