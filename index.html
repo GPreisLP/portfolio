@@ -43,6 +43,40 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
         <script>
+            $(document).ready(function(){
+                countdown(1);
+            });
+        
+            function countdown(id){
+                var fecha=new Date('2018','11','10','21','00','00')
+                var hoy=new Date()
+                var dias=0
+                var horas=0
+                var minutos=0
+                var segundos=0
+            
+                if (fecha>hoy){
+                    var diferencia=(fecha.getTime()-hoy.getTime())/1000
+                    dias=Math.floor(diferencia/86400)
+                    diferencia=diferencia-(86400*dias)
+                    horas=Math.floor(diferencia/3600)
+                    diferencia=diferencia-(3600*horas)
+                    minutos=Math.floor(diferencia/60)
+                    diferencia=diferencia-(60*minutos)
+                    segundos=Math.floor(diferencia)
+            
+                    document.getElementById('countdown').innerHTML = 'Quedan ' + dias + ' D&iacute;as, ' + horas + ' Horas, ' + minutos + ' Minutos, ' + segundos + ' Segundos';
+            
+                    if (dias>0 || horas>0 || minutos>0 || segundos>0){
+                        setTimeout("countdown(\"" + id + "\")",1000)
+                    }
+                }
+                else{
+                    document.getElementById('countdown').innerHTML = 'Quedan ' + dias + ' D&iacute;as, ' + horas + ' Horas, ' + minutos + ' Minutos, ' + segundos + ' Segundos';
+                    
+                }
+            }
+    
             var someDate = new Date();
             var dd = someDate.getDate();
             var mm = someDate.getMonth() + 1;
@@ -59,21 +93,6 @@
             var dias2 = Math.round(diasRest/(1000 * 60 * 60 * 24));
             
             var diasSenior = 100 - ((dias2 / dias) * 100);
-            
-            var meses = (dias - dias2) / 30;
-            var years = meses/12;
-            
-            if(meses > 12){
-                if(years == 1){
-                    meses -= 12;
-                }else if(years == 2){
-                    meses -= 24;
-                }else if(years == 3){
-                    meses -= 36;
-                }
-            }
-            
-            var tiempo = Math.round(years) + " años y " + meses.toFixed(1) + " meses";
             
         </script>
     </head>
@@ -437,9 +456,10 @@
                                         <div class="progress">
                                             <script>document.write('<div class="progress-bar" role="progressbar"  data-percentage="'+diasSenior.toFixed(2)+'">');</script>
                                                 <span class="progress-bar-span" ><script>document.write(diasSenior.toFixed(2));</script></span>
-                                                <span class="sr-only-custom-custom"><script>document.write(tiempo)</script></span>
+                                                <span class="sr-only-custom-custom"></span>
                                             </div>
                                         </div>
+                                        <div id="countdown"></div>
                                     </div>
 
                                 </div><!-- /.tab-content -->
